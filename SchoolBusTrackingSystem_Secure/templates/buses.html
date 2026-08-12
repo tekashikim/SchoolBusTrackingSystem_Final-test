@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}<h1>🚌 Bus Management</h1><div class="panel"><h2>Add Bus</h2>
+<form method="POST" action="/add_bus" class="formgrid"><input name="bus_number" placeholder="Bus number" required><input name="route" placeholder="Route" required>
+<select name="driver_id"><option value="">No driver</option>{% for d in drivers %}<option value="{{d.id}}">{{d.fullname}}</option>{% endfor %}</select><button class="btn">Add Bus</button></form></div>
+<div class="panel"><table><tr><th>Bus</th><th>Driver</th><th>Route</th><th>Status</th></tr>{% for b in buses %}<tr><td>{{b.bus_number}}</td><td>{{b.driver or 'Not assigned'}}</td><td>{{b.route}}</td><td>{{b.status}}</td></tr>{% endfor %}</table></div>{% endblock %}

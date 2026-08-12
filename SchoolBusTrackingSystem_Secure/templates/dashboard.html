@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<h1>Welcome, {{session.fullname}} 👋</h1><p>Role: {{session.role}}</p>
+<div class="cards"><div><b>🚌</b><strong>{{stats[0]}}</strong>Total Buses</div><div><b>🎓</b><strong>{{stats[1]}}</strong>Students</div>
+<div><b>👨‍✈️</b><strong>{{stats[2]}}</strong>Drivers</div><div><b>📍</b><strong>{{stats[3]}}</strong>On Route</div></div>
+<div class="panel"><h2>Quick Actions</h2><a class="action" href="/map">🗺 View Live Map</a>
+{% if session.role=='Driver' %}<a class="action" href="/driver">📍 Update Bus</a>{% endif %}
+{% if session.role=='Admin' %}<a class="action" href="/buses">🚌 Manage Buses</a>{% endif %}</div>{% endblock %}

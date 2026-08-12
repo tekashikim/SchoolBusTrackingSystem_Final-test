@@ -1,0 +1,19 @@
+{% extends "base.html" %}{% block title %}Manage Users{% endblock %}{% block content %}
+<div class="card">
+<h1>👥 Manage Users</h1>
+<p>Create Driver and Parent accounts. Administrator accounts cannot be created from this public page.</p>
+{% if message %}<div class="success">{{ message }}</div>{% endif %}
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+<form method="POST">
+<label>Full Name</label><input name="fullname" required>
+<label>Email</label><input name="email" type="email" required>
+<label>Temporary Password</label><input name="password" type="password" minlength="8" required>
+<label>Role</label><select name="role" required><option value="Driver">Driver</option><option value="Parent">Parent</option></select>
+<button class="btn">Create Account</button>
+</form>
+<h2>Existing Accounts</h2>
+<table><tr><th>Name</th><th>Email</th><th>Role</th></tr>
+{% for u in users %}<tr><td>{{u.fullname}}</td><td>{{u.email}}</td><td>{{u.role}}</td></tr>{% else %}<tr><td colspan="3">No accounts yet.</td></tr>{% endfor %}
+</table>
+</div>
+{% endblock %}
