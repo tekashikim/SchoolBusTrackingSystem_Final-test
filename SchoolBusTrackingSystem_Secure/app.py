@@ -309,4 +309,4 @@ def reports():
 
 if __name__ == "__main__":
     init_db()
-    app.run(debug=False, host="127.0.0.1", port=int(os.environ.get("PORT", 5002)))
+    app.run(debug=False, host="0.0.0.0", port=int(os.environ.get("PORT", 5002)))
