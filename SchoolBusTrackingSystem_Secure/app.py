@@ -14,8 +14,6 @@ def db():
     c.row_factory = sqlite3.Row
     return c
 
-init_db()
-
 def init_db():
     c = db()
     c.execute("""CREATE TABLE IF NOT EXISTS users(
@@ -53,6 +51,7 @@ def init_db():
     c.commit()
     c.close()
 
+init_db()
 
 def login_required(f):
     @wraps(f)
