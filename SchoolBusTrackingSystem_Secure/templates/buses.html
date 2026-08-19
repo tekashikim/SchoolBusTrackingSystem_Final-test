@@ -9,7 +9,7 @@
     <form method="POST" action="/add_bus" class="formgrid">
         <input name="bus_number" placeholder="Bus number" required>
         <input name="route" placeholder="Route" required>
-        <selectname="driver_id">
+        <select name="driver_id" title="Select a driver">
             <option value="">
                 No driver
             </option>
@@ -19,7 +19,7 @@
             </option>
             {% endfor %}
             </select>
-            <buttonclass="btn">
+        <button type="submit" class="btn">
                 Add Bus
                 </button>
     </form>

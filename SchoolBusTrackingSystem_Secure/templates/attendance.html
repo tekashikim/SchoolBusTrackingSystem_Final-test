@@ -5,34 +5,34 @@
 {% if session.role in ['Admin','Driver'] %}
 <div class="panel">
     <form method="POST" action="/attendance/add" class="formgrid">
-        <selectname="student_id">
+        <select name="student_id" title="Student">
             {% for s in students %}
             <option value="{{s.id}}">
                 {{s.admission_no}} - {{s.fullname}}
             </option>
             {% endfor %}
             </select>
-            <selectname="bus_id">
+        <select name="bus_id" title="Bus">
                 {% for b in buses %}
                 <option value="{{b.id}}">
                     {{b.bus_number}}
                 </option>
                 {% endfor %}
-                </select>
-                <selectname="status">
-                    <option>
-                        Boarded
-                    </option>
-                    <option>
-                        Absent
-                    </option>
-                    <option>
-                        Dropped Off
-                    </option>
-                    </select>
-                    <buttonclass="btn">
-                        Record
-                        </button>
+            </select>
+        <select name="status" title="Attendance Status">
+                <option value="Boarded">
+                    Boarded
+                </option>
+                <option value="Absent">
+                    Absent
+                </option>
+                <option value="Dropped Off">
+                    Dropped Off
+                </option>
+            </select>
+        <button type="submit" class="btn">
+                Record
+            </button>
     </form>
 </div>
 {% endif %}
