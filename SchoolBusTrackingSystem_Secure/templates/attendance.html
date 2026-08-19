@@ -1,5 +1,73 @@
-{% extends "base.html" %}{% block content %}<h1>✅ Student Attendance</h1>{% if session.role in ['Admin','Driver'] %}<div class="panel"><form method="POST" action="/attendance/add" class="formgrid">
-<select name="student_id">{% for s in students %}<option value="{{s.id}}">{{s.admission_no}} - {{s.fullname}}</option>{% endfor %}</select>
-<select name="bus_id">{% for b in buses %}<option value="{{b.id}}">{{b.bus_number}}</option>{% endfor %}</select>
-<select name="status"><option>Boarded</option><option>Absent</option><option>Dropped Off</option></select><button class="btn">Record</button></form></div>{% endif %}
-<div class="panel"><table><tr><th>Student</th><th>Bus</th><th>Status</th><th>Time</th></tr>{% for r in records %}<tr><td>{{r.fullname}}</td><td>{{r.bus_number}}</td><td>{{r.status}}</td><td>{{r.recorded_at}}</td></tr>{% endfor %}</table></div>{% endblock %}
+{% extends "base.html" %} {% block content %}
+<h1>
+    Student Attendance
+</h1>
+{% if session.role in ['Admin','Driver'] %}
+<div class="panel">
+    <form method="POST" action="/attendance/add" class="formgrid">
+        <selectname="student_id">
+            {% for s in students %}
+            <option value="{{s.id}}">
+                {{s.admission_no}} - {{s.fullname}}
+            </option>
+            {% endfor %}
+            </select>
+            <selectname="bus_id">
+                {% for b in buses %}
+                <option value="{{b.id}}">
+                    {{b.bus_number}}
+                </option>
+                {% endfor %}
+                </select>
+                <selectname="status">
+                    <option>
+                        Boarded
+                    </option>
+                    <option>
+                        Absent
+                    </option>
+                    <option>
+                        Dropped Off
+                    </option>
+                    </select>
+                    <buttonclass="btn">
+                        Record
+                        </button>
+    </form>
+</div>
+{% endif %}
+<div class="panel">
+    <table>
+        <tr>
+            <th>
+                Student
+            </th>
+            <th>
+                Bus
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Time
+            </th>
+        </tr>
+        {% for r in records %}
+        <tr>
+            <td>
+                {{r.fullname}}
+            </td>
+            <td>
+                {{r.bus_number}}
+            </td>
+            <td>
+                {{r.status}}
+            </td>
+            <td>
+                {{r.recorded_at}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

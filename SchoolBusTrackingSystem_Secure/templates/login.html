@@ -1,14 +1,20 @@
-{% extends "base.html" %}{% block title %}Login{% endblock %}{% block content %}
+{% extends "base.html" %} {% block title %} Login {% endblock %} {% block content %}
 <div class="login">
-    <h1>🔐 Login</h1>
-    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+    <h1>
+        Login
+    </h1>
+    {% if error %}
+    <div class="error">
+        {{ error }}
+    </div>
+    {% endif %}
     <form method="POST" autocomplete="on">
         <label>Email</label>
         <input name="email" type="email" autocomplete="username" placeholder="Enter your email" required>
         <label>Password</label>
         <input name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
-        <button class="btn">Login</button>
+        <buttonclass="btn">Login</button>
     </form>
-    <p style="margin-top:15px;font-size:14px;opacity:.75;">Use the account provided by your school administrator.</p>
+    <pstyle="margin-top:15px;font-size:14px;opacity:.75;">Use the account provided by your school administrator.</p>
 </div>
 {% endblock %}

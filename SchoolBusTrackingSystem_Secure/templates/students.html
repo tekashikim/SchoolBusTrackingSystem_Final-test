@@ -1,3 +1,45 @@
-{% extends "base.html" %}{% block content %}<h1>🎓 Students</h1>{% if session.role=='Admin' %}<div class="panel"><form method="POST" action="/add_student" class="formgrid">
-<input name="admission_no" placeholder="Admission number" required><input name="fullname" placeholder="Student name" required><input name="route" placeholder="Route" required><button class="btn">Add Student</button></form></div>{% endif %}
-<div class="panel"><table><tr><th>Admission</th><th>Name</th><th>Route</th></tr>{% for s in students %}<tr><td>{{s.admission_no}}</td><td>{{s.fullname}}</td><td>{{s.route}}</td></tr>{% endfor %}</table></div>{% endblock %}
+{% extends "base.html" %} {% block content %}
+<h1>
+    Students
+</h1>
+{% if session.role=='Admin' %}
+<div class="panel">
+    <form method="POST" action="/add_student" class="formgrid">
+        <input name="admission_no" placeholder="Admission number" required>
+        <input name="fullname" placeholder="Student name" required>
+        <input name="route" placeholder="Route" required>
+        <buttonclass="btn">
+            Add Student
+            </button>
+    </form>
+</div>
+{% endif %}
+<div class="panel">
+    <table>
+        <tr>
+            <th>
+                Admission
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Route
+            </th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>
+                {{s.admission_no}}
+            </td>
+            <td>
+                {{s.fullname}}
+            </td>
+            <td>
+                {{s.route}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
